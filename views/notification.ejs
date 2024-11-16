@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="fa_IR" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        body {
+            font-family: 'Vazir', 'Lato';
+            margin: 0px;
+            padding: 0px;
+            color: #fff;
+            height: 100%;
+            overflow: hidden;
+            /* animation: animha 1s infinite; */
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fadeOutA {
+            opacity: 0;
+            animation: fadeOut 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .fadeInA {
+            opacity: 1 !important;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes animha {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1)
+            }
+        }
+
+        @font-face {
+            font-family: "yekan";
+            src: url("/fonts/iranyekanwebregular.woff");
+            src: url("/fonts/iranyekanwebregular.woff") format("embedded-opentype"), url("/fonts/iranyekanwebregular.woff") format("woff"), url(fonts/Yekan.ttf) format("truetype"), url(fonts/Yekan.svg#BYekan) format("svg");
+            font-weight: normal;
+            font-style: normal
+        }
+
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lato Regular'), local('Lato-Regular'), url(fonts/UyBMtLsHKBKXelqf4x7VRQ.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lato Regular'), local('Lato-Regular'), url(fonts/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+
+        @font-face {
+            font-family: 'Vazir';
+            font-weight: normal;
+            src: url("/fonts/iranyekanwebregular.woff") format("woff"), url("/fonts/iranyekanwebregular.woff") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'Vazir-Bold';
+            font-weight: bold;
+            src: url("/fonts/iranyekanwebregular.woff") format("woff"), url("/fonts/iranyekanwebregular.woff") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'Vazir-Light';
+            font-weight: lighter;
+            src: url("http://localhost:3000/fonts/iranyekanwebregular.woff") format("woff"), url("http://localhost:3000/fonts/iranyekanwebregular.woff") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'Vazir-WOL';
+            font-weight: lighter;
+            src: url("http://localhost:3000/fonts/iranyekanwebregular.woff") format("woff"), url("http://localhost:3000/fonts/iranyekanwebregular.woff") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'Vazir-WOL';
+            font-weight: normal;
+            src: url("http://localhost:3000/fonts/iranyekanwebregular.woff") format("woff"), url("http://localhost:3000/fonts/iranyekanwebregular.woff") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'Vazir-WOL';
+            font-weight: bold;
+            src: url("http://localhost:3000/fonts/iranyekanwebregular.woff") format("woff"), url("http://localhost:3000/fonts/iranyekanwebregular.woff") format("truetype");
+        }
+
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url("http://localhost:3000/fonts/iranyekanwebregular.woff") format('woff'), url(fonts/MaterialIcons-Regular.ttf) format('truetype');
+        }
+
+        .alertbox {
+            transition: .5s all;
+            /* TEST */
+            opacity: 1;
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            display: inline-block;
+            position: relative;
+        }
+
+        .alertbox .alertmediaholder {}
+
+        .alertbox .alertmediaholder .rightimage {
+            vertical-align: middle;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translate(0, -50%);
+            z-index: -1;
+        }
+
+        .alertbox .alertmediaholder .leftimage {
+            vertical-align: middle;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            transform: translate(0, -50%);
+            z-index: -1;
+        }
+
+        .alertbox .alertmediaholder {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            position: relative;
+        }
+
+        .alertbox .alertmediaholder .topimage {
+            vertical-align: middle;
+            text-align: center;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: -1;
+        }
+
+        .alertbox .alertmediaholde .middleimage {
+            z-index: -1;
+        }
+
+        .alertbox .alertmediaholder .bottomimage {
+            vertical-align: middle;
+            text-align: center;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: -1;
+        }
+
+        .alertbox .details {
+            overflow-wrap: break-word;
+            margin: 15px 0 20px 0;
+            max-width: 450px;
+            font-size: 18px;
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 10px;
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 1), 0px 2px 3px rgba(0, 0, 0, 1);
+            text-align: justify;
+            -moz-text-align-last: center;
+            text-align-last: center;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, .7);
+        }
+
+        .alertbox .donationinfo,
+        .alertbox .alertinfo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            white-space: nowrap;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        .alertbox .donationinfo .name,
+        .alertbox .alertinfo .name {
+            font-size: 26px;
+            font-weight: bold;
+            display: inline-block;
+            line-height: 41px;
+            padding: 6px 0 0 0;
+            box-sizing: border-box;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        .alertbox .donationinfo .detail,
+        .alertbox .alertinfo .detail {
+            height: 39px;
+            font-size: 18px;
+            line-height: 30px;
+            display: inline-block;
+            padding: 0px 0 0 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        #verticallist {
+            /*transition: .5s all;*/
+            background-repeat: no-repeat;
+            background-position: 50%;
+            position: absolute;
+            top: 50%;
+            right: unset;
+            left: 50%;
+            bottom: unset;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        #verticallist #verticallistholder {
+            box-sizing: border-box;
+            font-size: 15px;
+            font-weight: bold;
+            height: 200px;
+            overflow: hidden;
+            padding: 10px 0;
+            text-align: center;
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+            width: 300px;
+        }
+
+        #verticallist #verticallistholder .line {
+            display: block;
+            overflow: hidden;
+            height: 27px;
+            line-height: 27px;
+
+        }
+
+        #verticallist #verticallistholder .name {
+            display: inline-block;
+            width: 150px;
+            padding: 0 2px;
+            box-sizing: border-box;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            direction: ltr;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        #verticallist #verticallistholder .amount {
+            display: inline-block;
+            display: inline-block;
+            width: 110px;
+            text-overflow: ellipsis;
+            direction: rtl;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        #verticallist #verticallistholder .seperator {
+            display: inline-block;
+            width: 20px;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+
+        #horizontallist {
+            /*transition: .5s all;*/
+            background-repeat: no-repeat;
+            background-position: 50%;
+            position: absolute;
+            top: 50%;
+            right: unset;
+            left: 50%;
+            bottom: unset;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        #horizontallist #horizontallistholder {
+            box-sizing: border-box;
+            height: 27px;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            width: 300px;
+        }
+
+        #horizontallist #horizontallistholder .items {
+            box-sizing: border-box;
+            font-size: 15px;
+            font-weight: bold;
+            height: 27px;
+            white-space: nowrap;
+            text-align: center;
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        #horizontallist #horizontallistholder .items .line {
+            display: inline-block;
+            margin: 0 15px;
+            overflow: hidden;
+            height: 27px;
+            line-height: 27px;
+
+        }
+
+        #horizontallist #horizontallistholder .items .name {
+            display: inline-block;
+            max-width: 150px;
+            padding: 0 2px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            direction: ltr;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        #horizontallist #horizontallistholder .items .amount {
+            display: inline-block;
+            /*width: 110px;*/
+            padding: 0 2px;
+            text-overflow: ellipsis;
+            direction: rtl;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        #horizontallist #horizontallistholder .items .seperator {
+            display: inline-block;
+            padding: 0 5px;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+
+
+
+        .topsholder {
+            bottom: unset;
+            white-space: nowrap;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            height: 27px;
+            left: 50%;
+            line-height: 27px;
+            padding: 0 5px;
+            position: absolute;
+            right: unset;
+            text-align: center;
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            vertical-align: top;
+        }
+
+        .topsholder .name {
+            height: 27px;
+            max-width: 85px;
+            line-height: 27px;
+            white-space: nowrap;
+            text-align: center;
+            display: inline-block;
+            text-overflow: ellipsis;
+            direction: ltr;
+            overflow: hidden;
+            padding: 0 5px;
+            vertical-align: bottom;
+        }
+
+        .topsholder .amount {
+            height: 27px;
+            line-height: 27px;
+            text-align: center;
+            display: inline-block;
+            padding: 0 2px;
+            vertical-align: bottom;
+        }
+
+        .flist {
+            bottom: unset;
+            white-space: nowrap;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            height: 27px;
+            left: 50%;
+            line-height: 27px;
+            padding: 0 5px;
+            position: absolute;
+            right: unset;
+            text-align: center;
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            vertical-align: top;
+        }
+
+        .flist .name {
+            height: 27px;
+            max-width: 85px;
+            line-height: 27px;
+            white-space: nowrap;
+            text-align: center;
+            display: inline-block;
+            text-overflow: ellipsis;
+            direction: ltr;
+            overflow: hidden;
+            padding: 0 5px;
+            vertical-align: bottom;
+        }
+
+        .flist .amount {
+            height: 27px;
+            line-height: 27px;
+            text-align: center;
+            display: inline-block;
+            padding: 0 2px;
+            vertical-align: bottom;
+        }
+
+        .flist .seperator {
+            display: inline-block;
+            padding: 0 5px;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        .totalholder {
+            bottom: unset;
+            white-space: nowrap;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            height: 27px;
+            left: 50%;
+            line-height: 27px;
+            padding: 0 5px;
+            position: absolute;
+            right: unset;
+            text-align: center;
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            vertical-align: top;
+        }
+
+        .totalholder .amount {
+            height: 27px;
+            line-height: 27px;
+            text-align: center;
+            display: inline-block;
+            padding: 0 2px;
+            vertical-align: middle;
+        }
+
+        .goalholder {
+            transition: opacity .3s;
+            opacity: 0;
+            padding: 35px;
+            top: 50%;
+            right: unset;
+            left: 50%;
+            bottom: unset;
+            position: absolute;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .goalholder .inner {
+            transition: opacity .3s;
+            text-align: center;
+
+
+            min-width: 300px;
+
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, .7);
+
+        }
+
+        .goalholder .inner .goaltitle {
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 1), 0px 2px 3px rgba(0, 0, 0, 1);
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .goalholder .inner .progressbarholder {
+            width: 99%;
+            height: 20px;
+            line-height: 23px;
+            border-radius: 11px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+            font-size: 15px;
+            border: rgba(255, 255, 255, 0.39) 1px solid;
+        }
+
+        .goalholder .inner .progressbar {
+            transition: 1s all;
+            height: 100%;
+            overflow: hidden;
+            width: 50%;
+            min-width: 30px;
+            max-width: 100%;
+            line-height: inherit;
+            border-radius: 10px;
+            background: rgb(255, 255, 255);
+            color: #000;
+        }
+
+        .goalholder .inner .counter {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.73);
+        }
+    </style>
+
+    <script src="<%= address %>/assets/jquery.min.js.download"></script>
+    <script type="text/javascript" src="<%= address %>/assets/jquery.min.js(1).download"></script>
+    <script src="<%= address %>/assets/jquery-ui.js.download"></script>
+
+</head>
+
+<body style="text-align: center;" data-new-gr-c-s-check-loaded="14.1067.0" data-gr-ext-installed="">
+
+    <div style="position: absolute;overflow: hidden;width: 100%;height: 100%;top: 0;left: 0;right: 0;bottom: 0;"
+        id="donatealertholder">
+        <div class="alertbox">
+            <div class="alertmediaholder">
+                <div class="topimage">
+                    <img style="display: none;" src="https://reymit.ir/overlay/stream donation.png">
+                    <video style="display: none;">
+                        <source src="">
+                    </video>
+                </div>
+                <div class="rightimage">
+                    <img style="display: none;" src="https://reymit.ir/overlay/stream donation.png">
+                    <video style="display: none;">
+                        <source src="">
+                    </video>
+                </div>
+                <div class="middleimage">
+                    <img style="display: none;" src="https://reymit.ir/overlay/stream donation.png">
+                    <video style="display: none;">
+                        <source src="">
+                    </video>
+                </div>
+                <div class="leftimage">
+                    <img style="display: none;" src="https://reymit.ir/overlay/stream donation.png">
+                    <video style="display: none;">
+                        <source src="">
+                    </video>
+                </div>
+                <div class="bottomimage">
+                    <img style="display: none;">
+                    <video style="display: none;">
+                        <source src="">
+                    </video>
+                </div>
+                <div class="donationinfo" style="display: none;">
+                    <div class="name" id="dname" style="display: none;"></div>
+                    <br>
+                    <div class="detail" id="ddetail" style="display: none;"></div>
+                </div>
+            </div>
+            <center>
+                <div class="details" id="dondetails" style="display: none;"></div>
+            </center>
+            <div class="afterdescimage">
+                <img style="display: none;position: absolute;left: 50%;transform: translate(-50%, 0);"
+                    src="http://localhost:3000/assets/stream%20donation.png">
+                <video style="display: none;position: absolute;left: 50%;transform: translate(-50%, 0);">
+                    <source src="">
+                </video>
+            </div>
+        </div>
+        <audio id="mainaudio">
+            <source src="https://reymit.ir/overlay/coin.mp3">
+        </audio>
+        <audio id="TTSAudio">
+            <source src="">
+        </audio>
+        <audio id="VoiceAudio">
+            <source src="">
+        </audio>
+        <div class="contentloader" style="opacity: 0;height: 1px;width: 1px;position: absolute;overflow: hidden;">
+
+        </div>
+    </div>
+
+</body>
+
+<script src="<%= address %>/assets/socket.io.js"></script>
+<script>
+    /*
+        TODO:
+            ADD donation to a list
+            change description PublishDesc
+    */
+    let alert_show_time = 0
+    let new_donate_alert_sound, audio, playSound = false, show_sponser_description = true,
+        donationAlerts = [], animation = false, show_delay_sponser_details
+    let content_background_content_sponsor_profile
+    let content_content_below_sponsor_profile
+    let OL_bottom
+    let OL_top
+    let OL_right
+    let OL_left
+
+    // TEST
+    // setTimeout(() => {
+    //     donationAlerts.push({
+    //         donation_name: "سلام",
+    //         donation_detail: "لاشی",
+    //         details: "لاشی خودتی",
+    //         publishDesc: true,
+    //         publishName: true
+    //     })
+    // }, 2000)
+
+
+    setInterval(() => {
+        if (donationAlerts.length === 0 || animation) return
+        DonationAlert(donationAlerts[0])
+        animation = true
+        donationAlerts.shift()
+    }, 100)
+
+    const SetUpDonationAlertSound = (params) => {
+        audio = new Audio(params.sound_link)
+        audio.volume = params.sound_volume
+    }
+
+    setUpDonationAlertImg = (classname, url) => {
+        $(`.alertbox .alertmediaholder ${classname} img`)[0].src = url
+    }
+
+    setUpDonationAlertVideo = (classname, url) => {
+        return
+        $(`.alertbox .alertmediaholder ${classname} video`)[0].src = url
+        $(`.alertbox .alertmediaholder ${classname} video`)[0].play()
+    }
+
+    const DonationAlert = (params) => {
+        if (playSound) audio.play()
+        // params.publishName = false
+
+        $("#dondetails")[0].innerHTML = show_sponser_description ? params.details : ''
+        if (params.publishName)
+            $("#dname")[0].innerHTML = params.donation_name
+        // if (show_sponser_description || params.publishDesc)
+        $("#ddetail")[0].innerHTML = params.donation_detail
+
+        if (content_background_content_sponsor_profile) {
+            $(".alertbox .alertmediaholder .middleimage img").css("display", "unset")
+            $(".alertbox .alertmediaholder .middleimage img").addClass("fadeInA")
+
+            if (params.publishName) {
+                $("#dname").css("display", "unset")
+            }
+
+            $("#ddetail").css("display", "unset")
+
+            if (params.publishDesc && show_sponser_description) {
+                $("#dondetails").css("display", "unset").addClass("fadeInA")
+            }
+
+            $(".donationinfo").css("display", "unset")
+            $(".donationinfo").addClass("fadeInA")
+
+            // if (!show_sponser_description || !params.publishDesc) {
+            //     $("#dondetails").css("display", "none")
+            // } else {
+            //     setTimeout(() => {
+            //         $("#dondetails").css("display", "unset")
+            //         $("#dondetails").addClass("fadeInA")
+            //     }, show_delay_sponser_details * 1000)
+            // }
+        }
+
+        if (OL_bottom) {
+            $(".alertbox .alertmediaholder .bottomimage img").css("display", "unset")
+            $(".alertbox .alertmediaholder .bottomimage img").addClass("fadeInA")
+        }
+
+        if (OL_right) {
+            $(".alertbox .alertmediaholder .rightimage img").css("display", "unset")
+            $(".alertbox .alertmediaholder .rightimage img").addClass("fadeInA")
+        }
+
+        if (OL_left) {
+            $(".alertbox .alertmediaholder .leftimage img").css("display", "unset")
+            $(".alertbox .alertmediaholder .leftimage img").addClass("fadeInA")
+        }
+
+        if (OL_top) {
+            $(".alertbox .alertmediaholder .topimage img").css("display", "unset")
+            $(".alertbox .alertmediaholder .topimage img").addClass("fadeInA")
+        }
+
+        setTimeout(() => {
+            if (content_background_content_sponsor_profile) {
+                $(".alertbox .alertmediaholder .middleimage img").removeClass("fadeInA").addClass("fadeOutA")
+
+                $("#dondetails").removeClass("fadeInA")
+                $(".donationinfo").removeClass("fadeInA")
+
+                $("#dondetails").addClass("fadeOutA")
+                $(".donationinfo").addClass("fadeOutA")
+            }
+
+            if (OL_bottom) {
+                $(".alertbox .alertmediaholder .bottomimage img").removeClass("fadeInA").addClass("fadeOutA")
+            }
+
+            if (OL_right) {
+                $(".alertbox .alertmediaholder .rightimage img").removeClass("fadeInA").addClass("fadeOutA")
+            }
+
+            if (OL_left) {
+                $(".alertbox .alertmediaholder .leftimage img").removeClass("fadeInA").addClass("fadeOutA")
+            }
+
+            if (OL_top) {
+                $(".alertbox .alertmediaholder .topimage img").removeClass("fadeInA").addClass("fadeOutA")
+            }
+
+            setTimeout(() => {
+                animation = false
+
+                $(".alertbox .alertmediaholder .middleimage img").css("display", "none")
+                $(".alertbox .alertmediaholder .bottomimage img").css("display", "none")
+
+                $("#dondetails").css("display", "none")
+                $(".donationinfo").css("display", "none")
+
+                if (params.publishDesc) {
+                    $("#ddetail").css("display", "none")
+                }
+
+                if (params.publishName) {
+                    $("#dname").css("display", "none")
+                }
+
+            }, 2 * 1000)
+        }, alert_show_time * 1000)
+    }
+
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const key = urlParams.get('key');
+
+    const socket = io("<%= socket %>", {
+        timeout: 60 * 1000,
+        reconnection: true,
+        forceNew: true,
+        query: {
+            key: key,
+            falsdjfl: "aksdjfkljasd"
+        }
+    });
+    socket.connect();
+
+    socket.on("donation_alert", (message) => {
+        console.log(message)
+        if (message.test) {
+            show_sponser_description = true
+            donationAlerts.push({
+                donation_name: message.donation_name,
+                donation_detail: message.donation_detail,
+                details: message.details,
+                publishDesc: message.publishDesc,
+                publishName: message.publishName,
+            })
+        } else {
+            donationAlerts.push({
+                donation_name: message.donation_name,
+                donation_detail: message.donation_detail,
+                details: message.details,
+                publishDesc: message.publishDesc,
+                publishName: message.publishName,
+            })
+        }
+    })
+
+    socket.on("new-event-alert_videoContentSettingsTool", ({ message, file_types, file_selection_method }) => {
+        console.log(message)
+
+        // ------------------------------------------------------- OtherLocation
+        if (message.other_location_for_placemant_of_content) {
+            if (message.other_location_for_placemant_of_content.bottom_content_sponsor_profile.file_selection_method === file_selection_method.no_content) {
+                OL_bottom = false
+            } else {
+                OL_bottom = true
+                if (message.other_location_for_placemant_of_content.bottom_content_sponsor_profile.file_type === file_types.photo) {
+                    setUpDonationAlertImg(".bottomimage", message.other_location_for_placemant_of_content.bottom_content_sponsor_profile.link_or_name_of_file)
+                }
+            }
+
+            if (message.other_location_for_placemant_of_content.right_content_sponsor_profile.file_selection_method === file_selection_method.no_content) {
+                OL_right = false
+            } else {
+                OL_right = true
+                if (message.other_location_for_placemant_of_content.right_content_sponsor_profile.file_type === file_types.photo) {
+                    setUpDonationAlertImg(".rightimage", message.other_location_for_placemant_of_content.right_content_sponsor_profile.link_or_name_of_file)
+                }
+            }
+
+            if (message.other_location_for_placemant_of_content.left_content_sponsor_profile.file_selection_method === file_selection_method.no_content) {
+                OL_left = false
+            } else {
+                OL_left = true
+                if (message.other_location_for_placemant_of_content.left_content_sponsor_profile.file_type === file_types.photo) {
+                    setUpDonationAlertImg(".leftimage", message.other_location_for_placemant_of_content.left_content_sponsor_profile.link_or_name_of_file)
+                }
+            }
+
+            if (message.other_location_for_placemant_of_content.top_content_sponsor_profile.file_selection_method === file_selection_method.no_content) {
+                OL_top = false
+            } else {
+                OL_top = true
+                if (message.other_location_for_placemant_of_content.top_content_sponsor_profile.file_type === file_types.photo) {
+                    setUpDonationAlertImg(".topimage", message.other_location_for_placemant_of_content.top_content_sponsor_profile.link_or_name_of_file)
+                }
+            }
+        }
+
+
+
+        if (message.background_content_sponsor_profile.file_selection_method === file_selection_method.no_content) {
+            content_background_content_sponsor_profile = false
+        } else {
+            content_background_content_sponsor_profile = true
+            // background_content_sponsor_profile
+            if (message.background_content_sponsor_profile.file_type === file_types.photo) {
+                console.log(message.background_content_sponsor_profile.link_or_name_of_file)
+                setUpDonationAlertImg(".middleimage", message.background_content_sponsor_profile.link_or_name_of_file)
+            }
+            if (message.background_content_sponsor_profile.file_type === file_types.video) {
+                setUpDonationAlertVideo(".middleimage", message.background_content_sponsor_profile.link_or_name_of_file)
+            }
+        }
+
+
+
+
+    })
+
+    socket.on("new-event-alert_generalSettings", ({ message, file_selection_method }) => {
+        console.log(message)
+        console.log(file_selection_method)
+
+        if (message.timing) {
+            show_delay_sponser_details = message.timing.show_delay_sponser_details
+            alert_show_time = message.timing.alert_show_time
+        }
+
+        if (message.sponser_descreption)
+            show_sponser_description = message.sponser_descreption.show_sponser_description
+
+        if (message.new_donate_alert_sound.file_selection_method === file_selection_method.no_content) { playSound = false } else {
+            playSound = true
+            SetUpDonationAlertSound({
+                sound_link: message.new_donate_alert_sound.link_or_name_of_file,
+                sound_volume: message.new_donate_alert_sound.sound_volume / 100
+            })
+        }
+
+    })
+
+
+    window.onload = async function () {
+
+        // const au = new Audio("http://localhost:3000/assets/coin.mp3")
+        // au.volume = 0.99
+        // await au.play()
+
+        socket.on('connect', async () => {
+            console.log('connected');
+        });
+
+        socket.on('disconnect', function () {
+            console.log('disconnected');
+        });
+
+    }
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".leftimage *,.rightimage *,.topimage *").on('load loadeddata', function () {
+
+            $(this).closest(".alertbox").find(".alertmediaholder").css("margin-top", "");
+            for (const [index, item] of ['leftimage', 'rightimage'].entries()) {
+                if ($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].offsetTop - ($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight / 2) < 0) {
+                    if ($(this).closest(".alertbox").find(".alertmediaholder").css("margin-top").replace('px', "") < (($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].offsetTop - ($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight / 2)) * -1)) {
+                        $(this).closest(".alertbox").find(".alertmediaholder").css("margin-top", (($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].offsetTop - ($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight / 2)) * -1));
+                    }
+                }
+            }
+            if ($(this).closest(".alertbox").find(".alertmediaholder .topimage")[0].offsetTop - ($(this).closest(".alertbox").find(".alertmediaholder .topimage")[0].clientHeight / 2) < 0) {
+                if ($(this).closest(".alertbox").find(".alertmediaholder").css("margin-top").replace('px', "") < (($(this).closest(".alertbox").find(".alertmediaholder .topimage")[0].offsetTop) * -1)) {
+                    $(this).closest(".alertbox").find(".alertmediaholder").css("margin-top", (($(this).closest(".alertbox").find(".alertmediaholder .topimage")[0].offsetTop) * -1));
+                }
+            }
+        });
+
+        $(".leftimage *,.rightimage *,.bottomimage *").on('load loadeddata', function () {
+
+            $(this).closest(".alertbox").find(".alertmediaholder").css("margin-bottom", "");
+            for (const [index, item] of ['leftimage', 'rightimage'].entries()) {
+                if ($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].offsetTop - ($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight / 2) + $(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight > $(this).closest(".alertbox").find(".alertmediaholder .middleimage")[0].offsetTop + $(this).closest(".alertbox").find(".alertmediaholder .middleimage")[0].clientHeight) {
+                    if ($(this).closest(".alertbox").find(".alertmediaholder").css("margin-bottom").replace('px', "") < (($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].offsetTop - ($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight / 2) + $(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight) - ($(this).closest(".alertbox").find(".alertmediaholder .middleimage")[0].offsetTop + $(this).closest(".alertbox").find(".alertmediaholder .middleimage")[0].clientHeight))) {
+                        $(this).closest(".alertbox").find(".alertmediaholder").css("margin-bottom", (($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].offsetTop - ($(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight / 2) + $(this).closest(".alertbox").find(".alertmediaholder ." + item)[0].clientHeight) - ($(this).closest(".alertbox").find(".alertmediaholder .middleimage")[0].offsetTop + $(this).closest(".alertbox").find(".alertmediaholder .middleimage")[0].clientHeight)));
+                    }
+                }
+            }
+            if ($(this).closest(".alertbox").find(".alertmediaholder .bottomimage")[0].offsetTop + $(this).closest(".alertbox").find(".alertmediaholder .bottomimage")[0].clientHeight > $(this).closest(".alertbox").find(".alertmediaholder .middleimage")[0].offsetTop + $(this).closest(".alertbox").find(".alertmediaholder .middleimage")[0].clientHeight) {
+                if ($(this).closest(".alertbox").find(".alertmediaholder").css("margin-bottom").replace('px', "") < ($(this).closest(".alertbox").find(".alertmediaholder .bottomimage")[0].clientHeight)) {
+                    $(this).closest(".alertbox").find(".alertmediaholder").css("margin-bottom", ($(this).closest(".alertbox").find(".alertmediaholder .bottomimage")[0].clientHeight));
+                }
+            }
+        });
+
+    });
+</script>
+
+</html>

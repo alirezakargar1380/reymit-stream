@@ -1,0 +1,7 @@
+.idea
+node_modules
+New folder
+.env
+package-lock.json
+.adminjs
+public
